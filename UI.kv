@@ -1,0 +1,119 @@
+ScreenManager:
+    SplashScreen:
+    MainScreen:
+        name: 'main'
+    MapScreen:
+        name: 'map'
+    ShopScreen:
+        name: 'shop'
+
+<SplashScreen>
+    name: 'splash'
+    MDFloatLayout:
+        md_bg_color: 255/255,255/255,255/255, 1
+        Image:
+            source: "Image/splash.png"
+            size_hint: .50, .50
+            pos_hint: {'center_x': .54,'center_y': .6}
+    
+    MDIconButton:
+        icon: "chevron-right-circle"
+        user_font_size: "35sp"
+        pos_hint:{'center_x': .5, 'center_y': .12}
+        on_press: app.root.current = 'main'
+    
+    MDLabel:
+        text: "Welcome to IKOMAP"
+        color:255,225,255
+        font_size: '35sp'
+        theme_text_color: 'Custom'
+        halign: 'center'
+        pos_hint: {'center_x':.5,'center_y':.28}
+
+
+<MainScreen>
+    name: 'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 255/255, 255/255, 255/255, 1
+        specific_text_color: 1,1,1,1
+    
+        MDToolbar:
+            md_bg_color:255/255, 255/255, 255/255, 1
+            specific_text_color: 1, 1, 1, 1
+            height: dp(30)
+            left_action_items: [["menu","This is the navigation"]]
+            icon_color: 0,1,0,1
+        
+        MDTabs:
+            tab_hint_x: True
+            background_color: 255/255,255/255,255/255
+            scrollable:True
+            text_color_normal: 220/255,220/255,220/255
+            text_color_active: 1/255,1/255,1/255,1
+
+            Tab:
+                title: "おすすめ"
+                content_text: f"This is an example text for {self.title}"
+            
+            Tab:
+                title: "グルメ"
+                content_text: "Sample content text"
+
+            Tab:
+                title: "ランキング"
+                contetn_text: "Sample3"
+            
+            Tab:
+                title: "観光"
+                contetn_text: "Sample3"
+
+            Tab:
+                title: "スポット"
+                contetn_text: "Sample3"
+
+            Tab:
+                title: "交通"
+                contetn_text: "Sample3"
+
+        MDBottomNavigation:
+            panel_color: 220/255, 220/255, 220/255, 1
+            height: dp(30)
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'HOME'
+                icon: 'home'
+
+                MDLabel:
+                    text:'HOME'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Map'
+                icon: 'map'
+                 
+                MDLabel:
+                    text: 'Map'
+                    halign: 'center'
+                
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: 'Search'
+                icon: 'search-web'
+
+                MDLabel:
+                    text:'Serch'
+                    halign: 'center'
+
+<MapScreen>
+    name: 'map'
+    MDBoxLayout:
+        orientation: 'vertical'
+
+
+<Tab>:
+    MDLabel:
+        text: root.content_text
+        pos_hint: {"center_x": .5, "center_y": .5}
